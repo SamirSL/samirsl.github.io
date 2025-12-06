@@ -1,38 +1,259 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Startup</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" >
-    <!-- Note that the below Bootstrap file is a specific version. If you grab the most
-    current from Bootstrap website, you will see the button grow transition being a lot faster
-    than in my video.  Use whichever style sheet you like best! -->
-    <!-- Bootstrap CSS from a CDN. This way you don't have to include the bootstrap file yourself -->
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- My own stylesheet -->
-    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Noor's Stop &amp; Shop · Coming 2026</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container d-flex align-items-center h-100">
-      <div class="row">
-        <header class="text-center col-12">
-          <h1 class="text-uppercase"><strong>The biggest statup event of the year</strong></h1>
-        </header>
-        <div class="buffer col-12">
+    <div class="page-wrapper">
+      <!-- Background decorative shapes -->
+      <div class="bg-shape shape-1" aria-hidden="true"></div>
+      <div class="bg-shape shape-2" aria-hidden="true"></div>
+      <div class="bg-shape shape-3" aria-hidden="true"></div>
 
+      <header class="site-header" aria-label="Noor's Stop & Shop">
+        <div class="container header-inner">
+          <div class="logo-mark" aria-hidden="true">
+            <img
+                src="Noor's Stop and Shop Logo.svg"
+                alt="Noor's Stop &amp; Shop logo"
+                class="logo"
+            />
+          </div>
+
+          <button
+            class="ghost-link"
+            type="button"
+            data-scroll-target="#email-signup"
+          >
+            Join the waitlist
+          </button>
         </div>
-        <section class="text-center col-12">
-          <hr>
-         <a href="https://mailchi.mp/5c52f1767a95/ztmstudents"><button class="btn btn-primary btn-xl">Find out more</button></a>
+      </header>
+
+      <main>
+        <!-- Hero Section -->
+        <section class="hero" id="top">
+          <div class="container hero-inner">
+            <div class="hero-text">
+              <h1 class="brand-name">
+                Noor's Stop &amp; Shop
+              </h1>
+              <p class="hero-tagline">Soft, modest, beautiful.</p>
+              <p class="hero-description">
+                Everyday modest fits for the modern Muslim woman – soft on
+                your skin, gentle on your schedule, kind to your budget.
+              </p>
+              <p class="launch-announcement">Coming 2026</p>
+              <p class="location-text">
+                Based in Nigeria. Made for Muslim women everywhere.
+              </p>
+              <div class="hero-actions">
+                <button
+                  class="primary-button"
+                  type="button"
+                  data-scroll-target="#email-signup"
+                >
+                  Join the waitlist
+                </button>
+                <button
+                  class="secondary-button"
+                  type="button"
+                  data-scroll-target="#about"
+                >
+                  Learn more
+                </button>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-card">
+                <div class="hero-pill">Everyday elegance</div>
+                <div class="hero-blob"></div>
+                <div class="hero-copy-block">
+                  <p class="hero-copy-title">Modest. Soft. Effortless.</p>
+                  <p class="hero-copy-body">
+                    Flowy silhouettes, breathable fabrics and gentle
+                    colours – curated for real life.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
-      </div>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+
+            <div class="container about-inner">
+                <div class="about-text">
+                <h2 class="section-heading">
+                    A soft space for everyday elegance
+                </h2>
+                <p>
+                    Noor's Stop &amp; Shop is for the woman who wants to be
+                    comfortably covered and beautifully put-together – without
+                    overthinking every outfit.
+                </p>
+                <p>
+                    Our pieces are designed to move with you through errands,
+                    work days, school runs and coffee dates while keeping you
+                    modest, confident and at ease. Think flowy, breathable,
+                    beautifully covered fits in soft, feminine tones.
+                </p>
+                <p>
+                    Modesty here is not about hiding. It’s about showing up
+                    in your own light – softly, gracefully, and on your own
+                    terms.
+                </p>
+                </div>
+
+            <div class="about-visual" aria-hidden="true">
+                <img
+                    src="Landing Design.png"
+                    alt="Soft landing design preview for Noor's Stop & Shop"
+                    class="about-image"
+                />
+            </div>
+            </div>
+        </section>
+
+        <!-- Email Signup Section -->
+        <section
+          class="email-section"
+          id="email-signup"
+          aria-labelledby="signup-heading"
+        >
+          <div class="container email-inner">
+            <h2 class="signup-heading" id="signup-heading">
+              Be the first to know
+            </h2>
+            <p class="signup-description">
+              Sign up for launch updates, early drops and soft, modest style
+              notes from Noor’s Stop &amp; Shop.
+            </p>
+
+            <form class="email-form" id="email-form" novalidate>
+              <label class="visually-hidden" for="email-input">
+                Email address
+              </label>
+              <input
+                type="email"
+                class="email-input"
+                id="email-input"
+                name="email"
+                required
+                placeholder="Your email address"
+              />
+              <button
+                type="submit"
+                class="primary-button email-button"
+                id="email-submit-button"
+              >
+                <span id="email-button-text">Join the waitlist</span>
+              </button>
+            </form>
+
+            <p
+              class="signup-message"
+              id="signup-message"
+              aria-live="polite"
+            ></p>
+          </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section" aria-label="Brand values">
+          <div class="container">
+            <div class="values-strip">
+              <span>Modest</span>
+              <span class="value-divider">✦</span>
+              <span>Soft</span>
+              <span class="value-divider">✦</span>
+              <span>Elegant</span>
+              <span class="value-divider">✦</span>
+              <span>Comfortable</span>
+              <span class="value-divider">✦</span>
+              <span>Everyday</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div class="social-links">
+            <a
+                href="https://www.instagram.com/noorsstopandshop/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+                >
+                <span class="social-icon" aria-hidden="true">
+                    <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    >
+                    <rect
+                        x="2"
+                        y="2"
+                        width="20"
+                        height="20"
+                        rx="5"
+                        ry="5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+                    <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+                    <line
+                        x1="17.5"
+                        y1="6.5"
+                        x2="17.51"
+                        y2="6.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+                    </svg>
+                </span>
+                <span>Instagram</span>
+                </a>
+            <a
+              href="mailto:hello@noorsstopshop.com"
+              class="social-link"
+            >
+              <span class="social-icon" aria-hidden="true">@</span>
+              <span>Email</span>
+            </a>
+          </div>
+          <p class="footer-text">
+            Noor's Stop &amp; Shop · Coming 2026
+          </p>
+        </div>
+      </footer>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noor's Stop &amp; Shop - Coming 2026</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500&amp;family=Montserrat:wght@300;400&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #FAF7F5;
+      color: #5C4A42;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      min-height: 100%;
+      position: relative;
+    }
+
+    /* Decorative background shapes */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .shape-1 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #F4E8E8 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+    }
+
+    .shape-2 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #E8C4C4 0%, transparent 70%);
+      bottom: 200px;
+      left: -80px;
+    }
+
+    .shape-3 {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, #F4E8E8 0%, transparent 70%);
+      top: 50%;
+      right: 10%;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 85%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 2rem;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #5C4A42;
+      margin: 0 0 1rem 0;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-tagline {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #8B7169;
+      margin: 0 0 0.5rem 0;
+      font-style: italic;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #8B7169;
+      margin: 0 0 2.5rem 0;
+      max-width: 600px;
+    }
+
+    .launch-announcement {
+      font-family: 'Cormorant', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #D4A5A5;
+      margin: 0 0 1rem 0;
+      letter-spacing: 0.1em;
+    }
+
+    .location-text {
+      font-size: 0.95rem;
+      color: #8B7169;
+      margin: 0 0 2.5rem 0;
+    }
+
+    .cta-button {
+      background: #F4E8E8;
+      color: #5C4A42;
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-button:hover {
+      background: #E8C4C4;
+      transform: translateY(-2px);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #5C4A42;
+      font-weight: 300;
+    }
+
+    .about-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .decorative-arc {
+      width: 250px;
+      height: 250px;
+      border: 2px solid #F4E8E8;
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .decorative-arc::before {
+      content: '✦';
+      font-size: 3rem;
+      color: #D4A5A5;
+    }
+
+    /* Email Signup Section */
+    .email-section {
+      padding: 5rem 0;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .signup-heading {
+      font-family: 'Cormorant', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: #5C4A42;
+      margin: 0 0 1rem 0;
+    }
+
+    .signup-description {
+      font-size: 1rem;
+      color: #8B7169;
+      margin: 0 0 2rem 0;
+      line-height: 1.6;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .email-input {
+      flex: 1;
+      max-width: 350px;
+      padding: 1rem 1.5rem;
+      border: 1px solid #E8C4C4;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      background: #FFFFFF;
+      color: #5C4A42;
+    }
+
+    .email-input::placeholder {
+      color: #B8A8A0;
+    }
+
+    .email-input:focus {
+      outline: none;
+      border-color: #D4A5A5;
+    }
+
+    .email-button {
+      background: #D4A5A5;
+      color: #FFFFFF;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .email-button:hover:not(:disabled) {
+      background: #C49393;
+      transform: translateY(-2px);
+    }
+
+    .email-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .signup-message {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      min-height: 1.5rem;
+    }
+
+    .success-message {
+      color: #6B8E6B;
+    }
+
+    .error-message {
+      color: #C47676;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .values-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-family: 'Cormorant', serif;
+      font-size: 1.4rem;
+      color: #8B7169;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+
+    .value-divider {
+      color: #D4A5A5;
+      font-size: 0.8rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 3rem 0 2rem 0;
+      text-align: center;
+      border-top: 1px solid #F4E8E8;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-link {
+      color: #8B7169;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-link:hover {
+      color: #D4A5A5;
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: #B8A8A0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .brand-name {
+        font-size: 2.5rem;
+      }
+
+      .launch-announcement {
+        font-size: 2rem;
+      }
+
+      .about-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-visual {
+        order: -1;
+      }
+
+      .email-form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .email-input {
+        max-width: 100%;
+      }
+
+      .values-strip {
+        font-size: 1.2rem;
+        gap: 1.5rem;
+      }
+
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="page-wrapper"><!-- Background decorative shapes -->
+   <div class="bg-shape shape-1"></div>
+   <div class="bg-shape shape-2"></div>
+   <div class="bg-shape shape-3"></div><!-- Hero Section -->
+   <section class="hero">
+    <div class="container"><!-- Logo SVG -->
+     <svg class="logo" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="none" stroke="#D4A5A5" stroke-width="1.5" /> <path d="M30 65 Q50 35 70 65" fill="none" stroke="#D4A5A5" stroke-width="1.5" /> <circle cx="50" cy="40" r="3" fill="#D4A5A5" /> <text x="50" y="85" font-family="Cormorant, serif" font-size="20" text-anchor="middle" fill="#5C4A42">
+       N
+      </text>
+     </svg>
+     <h1 class="brand-name" id="brand-name">Noor's Stop &amp; Shop</h1>
+     <p class="hero-tagline" id="hero-tagline">Soft, modest, beautiful.</p>
+     <p class="hero-description" id="hero-description">Everyday modest fits for the modern Muslim woman.</p>
+     <h2 class="launch-announcement" id="launch-announcement">Coming 2026</h2>
+     <p class="location-text" id="location-text">Based in Nigeria. Made for Muslim women everywhere.</p><button class="cta-button" id="cta-button" onclick="scrollToSignup()">Join the waitlist</button>
+    </div>
+   </section><!-- About Section -->
+   <section class="about-section">
+    <div class="container" style="display: contents;">
+     <div class="about-text" id="about-text">
+      A soft space for modest women who want everyday elegance without sacrificing comfort. Noor's Stop &amp; Shop will bring flowy, breathable, beautifully covered fits to your daily life.
+     </div>
+     <div class="about-visual">
+      <div class="decorative-arc"></div>
+     </div>
+    </div>
+   </section><!-- Email Signup Section -->
+   <section class="email-section" id="email-signup">
+    <h3 class="signup-heading" id="signup-heading">Be the first to know</h3>
+    <p class="signup-description" id="signup-description">Sign up to hear about our 2026 launch, early drops and modest style updates.</p>
+    <form class="email-form" id="email-form" onsubmit="handleEmailSubmit(event)"><input type="email" class="email-input" id="email-input" placeholder="Your email address" required aria-label="Email address"> <button type="submit" class="email-button" id="email-submit-button"> <span id="email-button-text">Join</span> </button>
+    </form>
+    <div class="signup-message" id="signup-message"></div>
+   </section><!-- Values Section -->
+   <section class="values-section">
+    <div class="container">
+     <div class="values-strip"><span id="value-1">Modest</span> <span class="value-divider">✦</span> <span id="value-2">Soft</span> <span class="value-divider">✦</span> <span id="value-3">Elegant</span> <span class="value-divider">✦</span> <span id="value-4">Comfortable</span> <span class="value-divider">✦</span> <span id="value-5">Everyday</span>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="footer">
+    <div class="container">
+     <div class="social-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link">
+       <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /> <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /> <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+       </svg> Instagram </a> <a href="mailto:hello@noorsstopshop.com" class="social-link">
+       <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /> <polyline points="22,6 12,13 2,6" />
+       </svg> Email </a>
+     </div>
+     <p class="footer-text" id="footer-text">Noor's Stop &amp; Shop · Coming 2026</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: '#FAF7F5',
+      surface_color: '#F4E8E8',
+      text_color: '#5C4A42',
+      primary_action: '#D4A5A5',
+      secondary_action: '#E8C4C4',
+      font_family: 'Montserrat',
+      font_size: 16,
+      brand_name: "Noor's Stop & Shop",
+      hero_tagline: 'Soft, modest, beautiful.',
+      hero_description: 'Everyday modest fits for the modern Muslim woman.',
+      launch_year: '2026',
+      location_text: 'Based in Nigeria. Made for Muslim women everywhere.',
+      cta_button: 'Join the waitlist',
+      about_text: "A soft space for modest women who want everyday elegance without sacrificing comfort. Noor's Stop & Shop will bring flowy, breathable, beautifully covered fits to your daily life.",
+      signup_heading: 'Be the first to know',
+      signup_description: 'Sign up to hear about our 2026 launch, early drops and modest style updates.',
+      email_button: 'Join',
+      value_1: 'Modest',
+      value_2: 'Soft',
+      value_3: 'Elegant',
+      value_4: 'Comfortable',
+      value_5: 'Everyday',
+      footer_text: "Noor's Stop & Shop · Coming 2026"
+    };
+
+    let currentData = [];
+
+    function scrollToSignup() {
+      document.getElementById('email-signup').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    async function handleEmailSubmit(event) {
+      event.preventDefault();
+      
+      const emailInput = document.getElementById('email-input');
+      const submitButton = document.getElementById('email-submit-button');
+      const buttonText = document.getElementById('email-button-text');
+      const messageEl = document.getElementById('signup-message');
+      const email = emailInput.value.trim();
+
+      if (!email) return;
+
+      // Show loading state
+      submitButton.disabled = true;
+      buttonText.textContent = 'Joining...';
+      messageEl.textContent = '';
+      messageEl.className = 'signup-message';
+
+      // Check if email already exists
+      const emailExists = currentData.some(record => record.email === email);
+      
+      if (emailExists) {
+        messageEl.textContent = "You're already on the list! We'll keep you updated.";
+        messageEl.classList.add('success-message');
+        submitButton.disabled = false;
+        buttonText.textContent = window.elementSdk.config.email_button || defaultConfig.email_button;
+        emailInput.value = '';
+        return;
+      }
+
+      const result = await window.dataSdk.create({
+        email: email,
+        timestamp: new Date().toISOString()
+      });
+
+      if (result.isOk) {
+        messageEl.textContent = "Thank you! You're on the list. We'll be in touch soon.";
+        messageEl.classList.add('success-message');
+        emailInput.value = '';
+      } else {
+        messageEl.textContent = 'Something went wrong. Please try again.';
+        messageEl.classList.add('error-message');
+      }
+
+      submitButton.disabled = false;
+      buttonText.textContent = window.elementSdk.config.email_button || defaultConfig.email_button;
+    }
+
+    const dataHandler = {
+      onDataChanged(data) {
+        currentData = data;
+      }
+    };
+
+    async function onConfigChange(config) {
+      const baseSize = config.font_size || defaultConfig.font_size;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'sans-serif';
+      const serifFontStack = 'serif';
+
+      // Apply colors
+      document.body.style.background = config.background_color || defaultConfig.background_color;
+      document.body.style.color = config.text_color || defaultConfig.text_color;
+
+      // Background shapes
+      const shapes = document.querySelectorAll('.bg-shape');
+      if (shapes[0]) shapes[0].style.background = `radial-gradient(circle, ${config.surface_color || defaultConfig.surface_color} 0%, transparent 70%)`;
+      if (shapes[1]) shapes[1].style.background = `radial-gradient(circle, ${config.secondary_action || defaultConfig.secondary_action} 0%, transparent 70%)`;
+      if (shapes[2]) shapes[2].style.background = `radial-gradient(circle, ${config.surface_color || defaultConfig.surface_color} 0%, transparent 70%)`;
+
+      // Apply fonts
+      const brandName = document.getElementById('brand-name');
+      brandName.style.fontFamily = `Cormorant, ${customFont}, ${serifFontStack}`;
+      brandName.style.fontSize = `${baseSize * 3.5}px`;
+      brandName.style.color = config.text_color || defaultConfig.text_color;
+      brandName.textContent = config.brand_name || defaultConfig.brand_name;
+
+      const heroTagline = document.getElementById('hero-tagline');
+      heroTagline.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      heroTagline.style.fontSize = `${baseSize * 1.4}px`;
+      heroTagline.textContent = config.hero_tagline || defaultConfig.hero_tagline;
+
+      const heroDescription = document.getElementById('hero-description');
+      heroDescription.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      heroDescription.style.fontSize = `${baseSize * 1.1}px`;
+      heroDescription.textContent = config.hero_description || defaultConfig.hero_description;
+
+      const launchAnnouncement = document.getElementById('launch-announcement');
+      launchAnnouncement.style.fontFamily = `Cormorant, ${customFont}, ${serifFontStack}`;
+      launchAnnouncement.style.fontSize = `${baseSize * 2.5}px`;
+      launchAnnouncement.style.color = config.primary_action || defaultConfig.primary_action;
+      launchAnnouncement.textContent = `Coming ${config.launch_year || defaultConfig.launch_year}`;
+
+      const locationText = document.getElementById('location-text');
+      locationText.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      locationText.style.fontSize = `${baseSize * 0.95}px`;
+      locationText.textContent = config.location_text || defaultConfig.location_text;
+
+      const ctaButton = document.getElementById('cta-button');
+      ctaButton.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      ctaButton.style.fontSize = `${baseSize}px`;
+      ctaButton.style.background = config.surface_color || defaultConfig.surface_color;
+      ctaButton.style.color = config.text_color || defaultConfig.text_color;
+      ctaButton.textContent = config.cta_button || defaultConfig.cta_button;
+
+      const aboutText = document.getElementById('about-text');
+      aboutText.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      aboutText.style.fontSize = `${baseSize * 1.2}px`;
+      aboutText.style.color = config.text_color || defaultConfig.text_color;
+      aboutText.textContent = config.about_text || defaultConfig.about_text;
+
+      const signupHeading = document.getElementById('signup-heading');
+      signupHeading.style.fontFamily = `Cormorant, ${customFont}, ${serifFontStack}`;
+      signupHeading.style.fontSize = `${baseSize * 2.5}px`;
+      signupHeading.style.color = config.text_color || defaultConfig.text_color;
+      signupHeading.textContent = config.signup_heading || defaultConfig.signup_heading;
+
+      const signupDescription = document.getElementById('signup-description');
+      signupDescription.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      signupDescription.style.fontSize = `${baseSize}px`;
+      signupDescription.textContent = config.signup_description || defaultConfig.signup_description;
+
+      const emailInput = document.getElementById('email-input');
+      emailInput.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      emailInput.style.fontSize = `${baseSize}px`;
+      emailInput.style.borderColor = config.secondary_action || defaultConfig.secondary_action;
+
+      const emailButton = document.getElementById('email-button-text');
+      emailButton.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      emailButton.textContent = config.email_button || defaultConfig.email_button;
+      
+      const submitButton = document.getElementById('email-submit-button');
+      submitButton.style.background = config.primary_action || defaultConfig.primary_action;
+      submitButton.style.fontSize = `${baseSize}px`;
+
+      // Values
+      const valuesStrip = document.querySelector('.values-strip');
+      valuesStrip.style.fontFamily = `Cormorant, ${customFont}, ${serifFontStack}`;
+      valuesStrip.style.fontSize = `${baseSize * 1.4}px`;
+
+      document.getElementById('value-1').textContent = config.value_1 || defaultConfig.value_1;
+      document.getElementById('value-2').textContent = config.value_2 || defaultConfig.value_2;
+      document.getElementById('value-3').textContent = config.value_3 || defaultConfig.value_3;
+      document.getElementById('value-4').textContent = config.value_4 || defaultConfig.value_4;
+      document.getElementById('value-5').textContent = config.value_5 || defaultConfig.value_5;
+
+      const footerText = document.getElementById('footer-text');
+      footerText.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      footerText.style.fontSize = `${baseSize * 0.85}px`;
+      footerText.textContent = config.footer_text || defaultConfig.footer_text;
+
+      // Decorative elements
+      const decorativeArc = document.querySelector('.decorative-arc');
+      decorativeArc.style.borderColor = config.surface_color || defaultConfig.surface_color;
+
+      const decorativeArcStar = document.querySelector('.decorative-arc::before');
+      const style = document.createElement('style');
+      style.textContent = `.decorative-arc::before { color: ${config.primary_action || defaultConfig.primary_action} !important; }`;
+      document.head.appendChild(style);
+
+      const valueDividers = document.querySelectorAll('.value-divider');
+      valueDividers.forEach(div => {
+        div.style.color = config.primary_action || defaultConfig.primary_action;
+      });
+
+      const footerBorder = document.querySelector('.footer');
+      footerBorder.style.borderTopColor = config.surface_color || defaultConfig.surface_color;
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig: defaultConfig,
+        onConfigChange: onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_action || defaultConfig.primary_action,
+              set: (value) => {
+                config.primary_action = value;
+                window.elementSdk.setConfig({ primary_action: value });
+              }
+            },
+            {
+              get: () => config.secondary_action || defaultConfig.secondary_action,
+              set: (value) => {
+                config.secondary_action = value;
+                window.elementSdk.setConfig({ secondary_action: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['brand_name', config.brand_name || defaultConfig.brand_name],
+          ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+          ['hero_description', config.hero_description || defaultConfig.hero_description],
+          ['launch_year', config.launch_year || defaultConfig.launch_year],
+          ['location_text', config.location_text || defaultConfig.location_text],
+          ['cta_button', config.cta_button || defaultConfig.cta_button],
+          ['about_text', config.about_text || defaultConfig.about_text],
+          ['signup_heading', config.signup_heading || defaultConfig.signup_heading],
+          ['signup_description', config.signup_description || defaultConfig.signup_description],
+          ['email_button', config.email_button || defaultConfig.email_button],
+          ['value_1', config.value_1 || defaultConfig.value_1],
+          ['value_2', config.value_2 || defaultConfig.value_2],
+          ['value_3', config.value_3 || defaultConfig.value_3],
+          ['value_4', config.value_4 || defaultConfig.value_4],
+          ['value_5', config.value_5 || defaultConfig.value_5],
+          ['footer_text', config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    }
+
+    if (window.dataSdk) {
+      window.dataSdk.init(dataHandler);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a9c45b7b564c13d',t:'MTc2NTAyOTIzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
